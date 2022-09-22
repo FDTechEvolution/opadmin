@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/app', function() {
+Route::get('/app/{any}', function() {
     return view('app');
-});
+})->where('any', '.*');

@@ -7,8 +7,18 @@
                     <li class="menu-title">Main</li>
 
                     <li>
-                        <a href="#" class="waves-effect waves-primary"><i
-                                class="ti-home"></i><span> Dashboard </span></a>
+                        <router-link to="/app/dashboard" class="waves-effect waves-primary"><i
+                                class="ti-home"></i><span> Dashboard </span></router-link>
+                    </li>
+
+                    <li>
+                        <router-link to="/app/org" class="waves-effect waves-primary"><i
+                                class="ti-home"></i><span> Orgs </span></router-link>
+                    </li>
+
+                    <li>
+                        <router-link to="/app/user" class="waves-effect waves-primary"><i
+                                class="ti-home"></i><span> Users </span></router-link>
                     </li>
 
                     <li>

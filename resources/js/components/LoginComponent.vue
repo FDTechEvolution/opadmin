@@ -73,7 +73,7 @@
                     }
                 })
                 .then((res) => {
-                    if(res.data) window.location.href = `${process.env.MIX_WEB_URL}/app`
+                    if(res.data) window.location.href = `${process.env.MIX_WEB_URL}/app/dashboard`
                 })
                 .catch((e) => {
                     this.loading = false
@@ -90,7 +90,7 @@
                 })
                 .then((res) => {
                     localStorage.setItem("_tk", res.data.access_token)
-                    window.location.href = `${process.env.MIX_WEB_URL}/app`
+                    window.location.href = `${process.env.MIX_WEB_URL}/app/dashboard`
                 })
                 .catch((e) => {
                     console.log(e)
@@ -106,5 +106,12 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+    }
+    .center-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
     }
 </style>
