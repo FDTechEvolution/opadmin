@@ -30,11 +30,14 @@ Route::prefix('v1')->group(function () {
         Route::prefix('org')->group(function () {
             Route::get('get', [OrgController::class, 'getOrgs']);
             Route::get('status/{org_id}', [OrgController::class, 'updateStatus']);
+            Route::get('count', [OrgController::class, 'getOrgsCount']);
         });
 
         Route::prefix('user')->group(function () {
             Route::get('get', [UserController::class, 'getUsers']);
             Route::get('status/{user_id}', [UserController::class, 'updateStatus']);
+            Route::get('count', [UserController::class, 'getUsersCount']);
+            Route::get('online', [UserController::class, 'userOnline']);
         });
     });
 });

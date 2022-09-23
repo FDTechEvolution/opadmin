@@ -3,11 +3,13 @@ export default {
     state: () => ({
         orgs: [],
         orgs_length: 1,
+        org_count: 0
     }),
 
     getters: {
         orgs: (state) => state.orgs,
-        orgs_length: (state) => state.orgs_length
+        orgs_length: (state) => state.orgs_length,
+        org_count: (state) => state.org_count
     },
 
     mutations: {
@@ -30,6 +32,9 @@ export default {
         },
         SET_ORG_LENGTH(state, payload) {
             state.orgs_length = payload.length
+        },
+        ORG_COUNT(state, payload) {
+            state.org_count = payload
         }
     },
     
@@ -69,6 +74,19 @@ export default {
             })
             .then((res) => {
                 if(!res.data.error) dispatch('getOrgs')
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+        },
+        orgCount({commit}) {
+            axios.get(`${process.env.MIX_API_URL}/org/count`,{
+                headers: {
+                    'Authorization': `bearer ${localStorage.getItem('_tk')}`
+                }
+            })
+            .then((res) => {
+                commit('ORG_COUNT', res.data.orgs)
             })
             .catch((e) => {
                 console.log(e)

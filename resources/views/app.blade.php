@@ -11,6 +11,7 @@
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/icons.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/myStyle.css') }}" rel="stylesheet">
     </head>
 
 
@@ -20,7 +21,7 @@
                 <topbar-component></topbar-component>
                 <sidebar-component></sidebar-component>
             </div>
-            <div class="content-page">
+            <div class="content-page" style="background-color: #f5f5f5;">
                 <!-- Start content -->
                 <div class="content">
                     <div class="container-fluid">

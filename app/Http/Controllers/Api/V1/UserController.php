@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 use App\Models\User;
+use App\Models\UserActivity;
 
 class UserController extends Controller
 {
@@ -23,5 +24,23 @@ class UserController extends Controller
         
         if($user) return response()->json(['error' => false], 200);
         return response()->json(['error' => true], 400);
+    }
+
+    public function getUsersCount() {
+        $users = User::get();
+        $user_count = $users->count();
+
+        return response()->json(['users' => $user_count], 200);
+    }
+
+    public function userOnline() {
+        $newtimestamp = strtotime(date('Y-m-d H:i:s').' - 5 minute');
+        $dateTo = date('Y-m-d H:i:s');
+        $dateFrom = date('Y-m-d H:i:s', $newtimestamp);
+
+        $user = UserActivity::whereBetween('modified', [$dateFrom, $dateTo])->get();
+        $user_online = $user->count();
+
+        return response()->json(['user_online' => $user_online]);
     }
 }

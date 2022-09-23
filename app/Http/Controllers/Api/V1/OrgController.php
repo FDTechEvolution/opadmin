@@ -24,4 +24,10 @@ class OrgController extends Controller
         if($org) return response()->json(['error' => false], 200);
         return response()->json(['error' => true], 400);
     }
+
+    public function getOrgsCount() {
+        $orgs = Org::get();
+        $org_count = $orgs->count();
+        return response()->json(['orgs' => $org_count]);
+    }
 }
