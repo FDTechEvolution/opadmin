@@ -31,6 +31,9 @@ Route::prefix('v1')->group(function () {
             Route::get('get', [OrgController::class, 'getOrgs']);
             Route::get('status/{org_id}', [OrgController::class, 'updateStatus']);
             Route::get('count', [OrgController::class, 'getOrgsCount']);
+            Route::get('view/{org_id}', [OrgController::class, 'orgView']);
+            Route::get('view/online/{org_id}', [OrgController::class, 'userOnline']);
+            Route::get('view/order/{org_id}', [OrgController::class, 'orderUpdate']);
         });
 
         Route::prefix('user')->group(function () {

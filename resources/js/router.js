@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import Dashboard from './pages/dashboard.vue';
 import Org from './pages/org.vue'
+import OrgView from './pages/org/view.vue'
 import User from './pages/user.vue'
 
 Vue.use(VueRouter);
@@ -22,6 +23,11 @@ const router = new VueRouter({
             path: `${app_url}/org`,
             name: 'org',
             component: Org
+        },
+        {
+            path: `${app_url}/org/view/:id`,
+            name: 'org-view',
+            component: OrgView
         },
         {
             path: `${app_url}/user`,

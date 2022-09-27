@@ -9,7 +9,7 @@
                 <b-col lg="4" class="text-center">
                     <b-avatar :variant="icon_color" rounded><i :class="icon"></i></b-avatar>
                 </b-col>
-                <b-col lg="12">
+                <b-col v-if="percent !== ''" lg="12">
                     <p class="mt-2 mb-0 text-sm" style="font-weight: 100;">
                         <span :class="p_type === 'pos' ? 'text-success' : 'text-danger'">{{ percent }}%</span> Since last month
                     </p>

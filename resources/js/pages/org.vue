@@ -86,12 +86,29 @@
                     <b-button size="sm" class="mr-1" @click="confirmStatus(row.item.name, row.item.id)">
                         เปิด/ปิด การใช้งาน
                     </b-button>
+                    <router-link :to="`/app/org/view/${row.item.id}`" class="mr-1 btn btn-sm btn-secondary" @click="view(row.item, row.index, $event.target)">
+                        รายละเอียด
+                    </router-link>
                     <b-button size="sm" @click="edit(row.item, $event.target)">
                         แก้ไข
                     </b-button>
                 </template>
 
             </b-table>
+
+            <b-row>
+                <b-col lg="8"></b-col>
+                <b-col lg="4">
+                    <b-pagination
+                        v-model="currentPage"
+                        :total-rows="orgs_length"
+                        :per-page="perPage"
+                        align="fill"
+                        size="sm"
+                        class="my-0"
+                    ></b-pagination>
+                </b-col>
+            </b-row>
 
             <b-modal :id="editModal.id" :title="editModal.title" @hide="resetEditModal" hide-footer>
                 <b-form-group
@@ -158,19 +175,6 @@
                 
             </b-modal>
 
-            <b-row>
-                <b-col lg="8"></b-col>
-                <b-col lg="4">
-                    <b-pagination
-                        v-model="currentPage"
-                        :total-rows="orgs_length"
-                        :per-page="perPage"
-                        align="fill"
-                        size="sm"
-                        class="my-0"
-                    ></b-pagination>
-                </b-col>
-            </b-row>
         </div>
     </div>
 </template>

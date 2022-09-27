@@ -14,17 +14,22 @@ class Org extends Model
         'name',
         'code',
         'mobileno',
-        'isactive'
+        'isactive',
+        'line_notify_token'
     ];
 
     protected $hidden = [
-        'modified'
+
     ];
 
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
     public function user() {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class)->with('user_activity', 'role');
+    }
+
+    public function order() {
+        return $this->hasMany(Order::class);
     }
 }

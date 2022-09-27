@@ -28,4 +28,8 @@ class User extends Model
     public function role() {
         return $this->belongsTo(Role::class);
     }
+
+    public function user_activity() {
+        return $this->hasOne(UserActivity::class);
+    }
 }
