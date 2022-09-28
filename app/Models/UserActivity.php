@@ -11,7 +11,7 @@ class UserActivity extends Model
     use HasFactory, Uuids;
 
     protected $fillable = [
-
+        'modified'
     ];
 
     protected $hidden = [

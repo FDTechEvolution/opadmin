@@ -62,15 +62,13 @@ export default {
                 user_count: payload.user.length,
                 status: payload.isactive,
                 line_token: payload.line_notify_token,
-                created: new Date(payload.created).toLocaleDateString(),
-                modified: new Date(payload.modified).toLocaleDateString()
+                created: new Date(payload.created).toLocaleDateString()
             }
         },
         USER_ONLINE(state, payload) {
             let users = [];
-
             payload.forEach((item) => {
-                var diff = new Date(item.user_activity.modified).getTime() - new Date().getTime();
+                let diff = item.user_activity !== null ? new Date(item.user_activity.modified).getTime() - new Date().getTime() : -60001
 
                 users.push({
                     'id': item.id,
@@ -193,7 +191,9 @@ export default {
                 }
             })
 
-            if(!res.data.error) commit('USER_ONLINE', res.data.user)
+            if(!res.data.error) {
+                commit('USER_ONLINE', res.data.user)
+            }
         },
         async orderUpdate({commit}, payload) {
             let res = await axios.get(`${process.env.MIX_API_URL}/org/view/order/${payload.id}`, {

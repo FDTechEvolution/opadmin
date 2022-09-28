@@ -77,8 +77,8 @@
                 @filtered="onFiltered"
                 >
                 <template #cell(status)="row">
-                    <p :class="row.value === 'Y' ? 'text-success' : 'text-danger'">
-                        {{ row.value === 'Y' ? 'เปิดใช้งาน' : 'ปิดใช้งาน' }}
+                    <p>
+                        <i :class="row.value === 'Y' ? 'mdi mdi-check text-color-success --fs-22' : 'mdi mdi-close text-secondary'"></i>
                     </p>
                 </template>
 

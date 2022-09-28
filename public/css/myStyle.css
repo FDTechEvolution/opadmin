@@ -1,3 +1,9 @@
 .per-page-group label {
     display: contents !important;
 }
+.--fs-22 {
+    font-size: 22px;
+}
+.text-color-success {
+    color: #52bb56 !important
+}

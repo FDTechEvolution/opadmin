@@ -144,7 +144,7 @@
                                 </template>
 
                                 <template #cell(status)="row">
-                                    <i :class="row.value === 'Y' ? 'mdi mdi-check text-danger' : 'mdi mdi-close text-secondary'"></i>
+                                    <i :class="row.value === 'Y' ? 'mdi mdi-check text-color-success --fs-22' : 'mdi mdi-close text-secondary'"></i>
                                 </template>
 
                                 <template #cell(employee)="row">
